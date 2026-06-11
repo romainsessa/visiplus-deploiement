@@ -106,7 +106,7 @@ jobs:
         run: npm install
         working-directory: book-front
       - name: Run unit tests (Jest)
-        run: npm run test
+        run: npm run test:coverage
         working-directory: book-front
       # Analyse SonarCloud
       - name: SonarCloud Scan
