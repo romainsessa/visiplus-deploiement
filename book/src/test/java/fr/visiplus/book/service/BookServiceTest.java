@@ -43,7 +43,7 @@ public class BookServiceTest {
 		boolean result = bookService.isNotGetLast21Days(book);
 		
 		//Assert
-		assertTrue(result);
+		assertTrue(false);
 		Mockito.verify(reservationService).isReservationMoreThan(reservation, 21);
 		
 	}
