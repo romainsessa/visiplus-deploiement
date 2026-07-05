@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>fr.visiplus</groupId>
 	<artifactId>book</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version> <!-- semantic-release -->
 	<name />
 	<description />
 	<url />
