@@ -8,12 +8,15 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.context.ActiveProfiles;
+
 
 import fr.visiplus.book.entity.Book;
 import fr.visiplus.book.entity.BookStatus;
 import fr.visiplus.book.entity.Reservation;
 
 @SpringBootTest
+@ActiveProfiles("test")
 public class BookServiceTest {
 	
 	@MockitoBean
