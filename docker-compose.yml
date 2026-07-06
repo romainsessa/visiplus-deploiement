@@ -29,6 +29,7 @@ services:
       context: ./book-front
     container_name: book-front
     environment:
+      PORT: 8080
       BOOK_BACK_URL: http://localhost:8080
     ports:
       - "4200:8080"
