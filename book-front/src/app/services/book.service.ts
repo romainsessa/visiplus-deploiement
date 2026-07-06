@@ -3,12 +3,18 @@ import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
 import { Observable } from 'rxjs';
 
+declare global {
+  interface Window {
+    env: any;
+  }
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-  private apiUrl = 'http://localhost:8080/book';
+  private apiUrl = `${window.env.BOOK_BACK_URL}/book`;
 
   constructor(private http: HttpClient) {}
 
