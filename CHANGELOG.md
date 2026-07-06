@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/romainsessa/visiplus-deploiement/compare/v1.1.1...v1.1.2) (2026-07-06)
+
+
+### Bug Fixes
+
+* cross origin issue ([b7dc0cb](https://github.com/romainsessa/visiplus-deploiement/commit/b7dc0cbe1ec93aab71afc6487b5ac1819469de52))
+
 ## [1.1.1](https://github.com/romainsessa/visiplus-deploiement/compare/v1.1.0...v1.1.1) (2026-07-06)
 
 
