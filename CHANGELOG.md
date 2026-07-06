@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/romainsessa/visiplus-deploiement/compare/v1.1.0...v1.1.1) (2026-07-06)
+
+
+### Bug Fixes
+
+* support dynamic Heroku port ([43893e2](https://github.com/romainsessa/visiplus-deploiement/commit/43893e249b471eee5c83c6fb182d17a2284547ee))
+
 # [1.1.0](https://github.com/romainsessa/visiplus-deploiement/compare/v1.0.0...v1.1.0) (2026-07-06)
 
 
