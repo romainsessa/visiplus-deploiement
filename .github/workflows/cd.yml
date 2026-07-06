@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  packages: write
 
 jobs:
   release:
@@ -21,6 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: npm
       - run: npm ci
       - name: Run Semantic Release
         env:
@@ -65,3 +65,37 @@ jobs:
         run: |
           heroku container:release web \
             --app ${{ vars.HEROKU_BACK_APP }}
+  deploy-frontend:
+    needs: release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Login Heroku Registry
+        run: |
+          echo ${{ secrets.HEROKU_API_KEY }} | docker login \
+            --username=_ \
+            --password-stdin \
+            registry.heroku.com
+      - name: Build Frontend Image
+        run: |
+          docker build \
+            -t registry.heroku.com/${{ vars.HEROKU_FRONT_APP }}/web \
+            ./book-front
+      - name: Push Frontend Image
+        run: |
+          docker push \
+            registry.heroku.com/${{ vars.HEROKU_FRONT_APP }}/web
+      - name: Install Heroku CLI
+        run: npm install -g heroku
+      - name: Verify Heroku App
+        run: |
+          heroku apps:info --app ${{ vars.HEROKU_FRONT_APP }}
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      - name: Release Frontend
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: |
+          heroku container:release web \
+            --app ${{ vars.HEROKU_FRONT_APP }}
